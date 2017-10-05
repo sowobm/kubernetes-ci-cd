@@ -13,7 +13,7 @@ podTemplate(label: 'mypod',
 
         tag = readFile('commit-id').replace("\n", "").replace("\r", "")
         appName = "hello-kenzan"
-        registryHost = "docker-registry-docker-repo.default.svc.cluster.local:4000/"
+        registryHost = "127.0.0.1:30400/"
         imageName = "${registryHost}${appName}:${tag}"
         env.BUILDIMG=imageName  
 
