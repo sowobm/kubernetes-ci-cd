@@ -18,8 +18,10 @@ podTemplate(label: 'mypod',
         env.BUILDIMG=imageName  
 
         stage "Build"
-        
-            sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
+            container('mypod')
+            {
+                  sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
+            }
         
         stage "Push"
 
