@@ -3,7 +3,7 @@ podTemplate(label: 'mypod',
     volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
 ) 
 {
-    node {
+    node('mypod') {
 
         checkout scm
 
@@ -15,7 +15,7 @@ podTemplate(label: 'mypod',
         appName = "hello-kenzan"
         registryHost = "127.0.0.1:30400/"
         imageName = "${registryHost}${appName}:${tag}"
-        env.BUILDIMG=imageName
+        env.BUILDIMG=imageName  
 
         stage "Build"
         
