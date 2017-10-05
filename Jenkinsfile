@@ -20,8 +20,7 @@ podTemplate(label: 'mypod',
         stage "Build"
             container('docker')
             {
-                  //sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
-                  sh "echo test"
+                  sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
             }
         
         stage "Push"
