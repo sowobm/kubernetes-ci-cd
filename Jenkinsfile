@@ -1,9 +1,9 @@
-podTemplate(label: 'mypod', 
+podTemplate(label: 'mypod1', inheritFrom: 'jnlp',
     containers: [ containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)],
     volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
 ) 
 {
-    node('mypod') {
+    node('mypod1') {
 
         checkout scm
 
