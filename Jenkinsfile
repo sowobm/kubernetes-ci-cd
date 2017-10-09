@@ -4,7 +4,7 @@ podTemplate(label: 'mypod1', inheritFrom: 'jnlp',
         containerTemplate(
             name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:latest', ttyEnabled: true, command: 'cat',
             envVars: [
-                secretEnvVar(key: 'KUBETOKEN', secretName: 'jenkins-token-nlkl6', secretKey: 'jenkins'),
+                secretEnvVar(key: 'KUBETOKEN', secretName: 'jenkins-token-nlkl6', secretKey: 'jenkins-token-nlkl6'),
                 envVar(key: 'KUBECLUSTER', value: 'https://138.68.78.70:6443'),
                 envVar(key: 'KUBECLUSTERNAME', value: 'spc0opj1mg')
             ]
