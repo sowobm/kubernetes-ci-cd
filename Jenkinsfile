@@ -41,8 +41,8 @@ podTemplate(label: 'mypod1', inheritFrom: 'jnlp',
 
         stage "Deploy"
             container('kubectl') {
-                sh "kubectl config set-cluster $KUBECLUSTERNAME --server=$KUBECLUSTER --insecure-skip-tls-verify=true"
-                sh "kubectl config set-credentials $KUBECLUSTERNAME --token=$KUBETOKEN"
+                sh "kubectl config set-cluster ${env.KUBECLUSTERNAME} --server=${env.KUBECLUSTER} --insecure-skip-tls-verify=true"
+                sh "kubectl config set-credentials ${env.KUBECLUSTERNAME} --token=${env.KUBETOKEN}"
                 sh "sed 's#127.0.0.1:30400/hello-kenzan:latest#'$BUILDIMG'#' applications/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
                 sh "kubectl rollout status deployment/hello-kenzan"
             }
